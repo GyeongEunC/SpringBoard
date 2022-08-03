@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 971px;
+	margin: 0 auto;
+}
+
+h1 {
+	color: purple;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
+	line-height: 24px;
+	background: #ffeefc;
+}
+
+table td, th {
+	border: #d3d3d3 solid 1px;
+	padding: 5px;
+}
+
+th {
+	background: #ffa8a8;
+	width: 120px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: rgb(255, 128, 192);
+}
