@@ -12,8 +12,8 @@
 
 <!-- 댓글 작성 -->
 <insert id="replyWrite" parameterType="com.lbi.domain.ReplyVO">
-	insert into reply(bno, writer, content, regDate)
-	values(#{bno}, #{writer}, #{content}, #{regDate})
+	insert into reply(rno, bno, writer, content)
+	values(reply_seq.nextval, #{bno}, #{writer}, #{content})
 </insert>
 
 <!-- 댓글 수정 -->

@@ -12,15 +12,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lbi.domain.BoardVO;
 import com.lbi.domain.Page;
+import com.lbi.domain.ReplyVO;
 import com.lbi.service.BoardService;
+import com.lbi.service.ReplyService;
 
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
 	
 	@Inject
-	BoardService service;
+	private BoardService service;
 	
+	@Inject
+	private ReplyService replyService;
+	
+	// 게시물 목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void getList(Model model) throws Exception {
 		List<BoardVO> list = null;
@@ -45,8 +51,14 @@ public class BoardController {
 	// 게시물 조회
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public void getView(@RequestParam("bno") int bno, Model model) throws Exception {
+		
 		BoardVO vo = service.view(bno);
 		model.addAttribute("view", vo);
+		
+		// 댓글 조회
+		List<ReplyVO> reply = null;
+		reply = replyService.list(bno);
+		model.addAttribute("reply", reply);
 	}
 	
 	// 게시물 수정_get

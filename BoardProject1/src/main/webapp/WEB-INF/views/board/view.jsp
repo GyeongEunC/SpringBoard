@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,37 +29,52 @@ ${view.content} <br>
 <!-- 댓글 Part -->
 
 <ul>
+<!-- 	<li> -->
+<!-- 		<div> -->
+<!-- 			<p> 1st_replier </p> -->
+<!-- 			<p> 1st_reply </p> -->
+<!-- 		</div> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 		<div> -->
+<!-- 			<p> 2nd_replier </p> -->
+<!-- 			<p> 2nd_reply </p> -->
+<!-- 		</div> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 		<div> -->
+<!-- 			<p> 3rd_replier </p> -->
+<!-- 			<p> 3rd_reply </p> -->
+<!-- 		</div> -->
+<!-- 	</li> -->
+	
+	<c:forEach items="${reply}" var="reply">
 	<li>
 		<div>
-			<p> 1st_replier </p>
-			<p> 1st_reply </p>
+			<p>${reply.writer} / <fmt:formatDate value="${reply.regDate}" pattern="yyyy-MM-dd" /> </p>
+			<p>${reply.content}</p>
 		</div>
-	</li>
-	<li>
-		<div>
-			<p> 2nd_replier </p>
-			<p> 2nd_reply </p>
-		</div>
-	</li>
-	<li>
-		<div>
-			<p> 3rd_replier </p>
-			<p> 3rd_reply </p>
-		</div>
-	</li>
+	</li>	
+	</c:forEach>
+
 </ul>
 
 <div>
+<form method="post" action="/reply/write">
+
 	<p>
 		<label> replier </label>
-		<input type="text">
+		<input type="text" name="writer">
 	</p>
 	<p>
-		<textarea rows="5" cols="50" ></textarea>
+		<textarea rows="5" cols="50" name="content"></textarea>
 	</p>
 	<p>
+		<input type="hidden" name="bno" value="${view.bno}">
 		<button type="button"> 댓글 작성 </button>
 	</p>
+	
+</form>	
 </div>
 
 <!-- 댓글 END -->
