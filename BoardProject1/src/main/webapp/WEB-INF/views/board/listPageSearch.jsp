@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div id="nav">
+	<%@ include file="../include/nav.jsp" %>
+</div>
 
 <h1> Board List </h1>
 	<table>

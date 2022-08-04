@@ -6,9 +6,7 @@
 
 <!-- 게시물 목록 -->
 <select id="list" resultType="com.lbi.domain.BoardVO">
-	select
-		bno, title, content, writer, regDate, viewCnt
-	from myBoard
+	select * from myBoard
 </select>
 
 <!-- 게시물 작성 -->

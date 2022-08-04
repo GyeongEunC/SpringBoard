@@ -20,7 +20,7 @@ ${view.content} <br>
 
 <div>
 	<a href="/board/modify?bno=${view.bno}"> 게시물 수정 </a> <br>
-	<a href="/board/list"> 목록 </a> <br>
+	<a href="/board/listPage?num=1"> 게시물 목록 </a> <br>
 	<a href="/board/delete?bno=${view.bno}"> 게시물 삭제 </a> <br>
 </div>
 
