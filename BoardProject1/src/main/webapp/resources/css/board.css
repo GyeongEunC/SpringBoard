@@ -29,10 +29,14 @@ th {
 
 a {
 	text-decoration: none;
-	color: black;
+	color: rgb(255, 128, 128);
 }
 
 a:hover {
 	text-decoration: underline;
 	color: rgb(255, 128, 192);
+}
+
+li {
+	color: #ff8080;
 }

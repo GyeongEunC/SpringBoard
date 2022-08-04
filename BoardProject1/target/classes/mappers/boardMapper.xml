@@ -51,11 +51,36 @@
 
 <!-- 게시물 목록 + 페이징 -->
 <select id="listPage" parameterType="hashMap" resultType="com.lbi.domain.BoardVO">
-	select
-		bno, title, writer, regDate, viewCnt
-	from (SELECT ROWNUM AS RNUM, T1.* from myBoard T1)
-	where
-    RNUM BETWEEN #{displayPost} AND #{postNum}
+	select * from (select Row_number() over(order by bno desc) num, a.* from myBoard a order by bno desc)
+	where num between #{displayPost} and #{postNum}
+</select>
+
+<!-- 게시물 목록 + 페이징 + 검색 -->
+<select id="listPageSearch" parameterType="hashMap" resultType="com.lbi.domain.BoardVO">
+	select * from (select Row_number() over(order by bno desc) num, a.* from myBoard a
+		<include refid="search" />
+		order by bno desc)
+	where num between #{displayPost} and #{postNum}
+</select>
+
+<sql id="search">
+	<if test="searchType != null">
+		<if test="searchType == 'title'.toString()"> where title like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'content'.toString()"> where content like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'writer'.toString()"> where writer like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'title_content'.toString()"> where(title like '%'|| #{keyword} ||'%') or (content like '%'|| #{keyword} ||'%')</if>
+	</if>
+</sql>
+
+<!-- 게시물 총 갯수 + 검색 적용 -->
+<select id="searchCount" resultType="int" parameterType="hashMap">
+	select count(bno) from myBoard
+	<if test="searchType != null">
+		<if test="searchType == 'title'.toString()"> where title like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'content'.toString()"> where content like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'writer'.toString()"> where writer like '%'|| #{keyword} ||'%'</if>
+		<if test="searchType == 'title_content'.toString()"> where (title like '%'|| #{keyword} ||'%') or (content like '%'|| #{keyword} ||'%')</if>
+	</if>
 </select>
 
 </mapper>

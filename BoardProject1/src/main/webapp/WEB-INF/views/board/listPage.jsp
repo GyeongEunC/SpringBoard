@@ -10,6 +10,11 @@
 <link href="/resources/css/board.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="nav">
+	<%@ include file="../include/nav.jsp" %>
+</div>
+
 <div id="wrap" align="center">
 
 <h1> Board List </h1>

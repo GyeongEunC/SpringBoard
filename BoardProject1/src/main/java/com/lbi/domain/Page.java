@@ -129,6 +129,41 @@ public class Page {
 		next = endPageNum * pageNumCnt >= count ? false : true;
 		
 		displayPost = (num - 1) * postNum;
+		postNum = displayPost + 9;
+	}
+	
+	// 검색 타입과 검색어
+	private String searchType;
+	private String keyword;
+
+	public String getSearchType() {
+		return searchType;
 	}
 
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	private String searchTypeKeyword;
+
+	public String getSearchTypeKeyword() {
+		return searchTypeKeyword;
+	}
+
+	public void setSearchTypeKeyword(String searchType, String keyword) {
+		if(searchType.equals("") || keyword.equals("")) {
+			searchTypeKeyword = "";
+		} else {
+			searchTypeKeyword = "&searchType="+searchType+"&keyword="+keyword;
+		}
+	}
+	
 }
