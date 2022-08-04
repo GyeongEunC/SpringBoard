@@ -10,12 +10,12 @@
 <link href="/resources/css/board.css" rel="stylesheet">
 </head>
 <body>
-<div id="wrap" align="center">
 
 <div id="nav">
-<%-- <%@ include file="nav.jsp" --%>
-<!-- nav.jsp(메뉴 화면)의 경로(file=?)를 찾지 못함 추후 수정사항  -->
+	<%@ include file="../include/nav.jsp" %>
 </div>
+
+<div id="wrap" align="center">
 
 <h1> Board List </h1>
 	<table>

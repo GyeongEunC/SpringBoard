@@ -7,11 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/resources/css/board.css" rel="stylesheet">
 </head>
 <body>
 <div id="nav">
 	<%@ include file="../include/nav.jsp" %>
 </div>
+
+<div id="wrap" align="center">
 
 <h1> Board List </h1>
 	<table>
@@ -80,6 +83,7 @@
 		<button type="button" id="searchBtn"> 검색 </button>
 	</div>
 	
+</div>
 </div>	
 
 <script>

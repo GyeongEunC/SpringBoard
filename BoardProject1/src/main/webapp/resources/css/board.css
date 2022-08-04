@@ -40,3 +40,69 @@ a:hover {
 li {
 	color: #ff8080;
 }
+
+label {
+	width: 180px;
+	height: 22px;
+	border: 0;
+	border-radius: 15px;
+	background-color: #fdc8d7;
+}
+
+input[type=text] {
+	width: 180px;
+	height: 22px;
+	border: 0;
+	border-radius: 15px;
+	background-color: #fdc8d7;
+}
+
+select {
+	width: 180px;
+	height: 22px;
+	border: 0;
+	border-radius: 15px;
+	background-color: #fdc8d7;
+}
+
+select>option {
+	border: 0;
+	border-radius: 15px;
+	background-color: #ffa8a8;
+}
+
+input[type=button] {
+	width: 100px;
+	height: 30px;
+	background-color: #FF6A00;
+	border: 1px solid #FFFFFF;
+	border-radius: 30px;
+	box-shadow: 5px 5px 5px #ff8080;
+}
+
+button[type=submit] {
+	width: 100px;
+	height: 30px;
+	background-color: #b7b7ff;
+	border: 1px solid #FFFFFF;
+	border-radius: 30px;
+	box-shadow: 5px 5px 5px #8080ff;
+}
+
+#btn a{
+	width: 250px;
+	height: 32px;
+	margin: 12px;
+	border: 0;
+	border-radius: 10px;
+	background-color: #fac4af;
+	text-align: center;
+}
+
+textarea {
+	width: 100%;
+	border: 0;
+	border-radius: 15px;
+	background-color: #fdc8d7;
+	text-align: center;
+}

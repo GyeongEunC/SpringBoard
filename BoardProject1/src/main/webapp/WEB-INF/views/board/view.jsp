@@ -7,23 +7,38 @@
 <head>
 <meta charset="UTF-8">
 <title> 게시물 조회 </title>
+<link href="/resources/css/board.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="nav">
+	<%@ include file="../include/nav.jsp" %>
+</div>
+
+<div id="wrap" align="center">
+
 <h1> Board View </h1>
 
-<label> 제목 </label>
-${view.title} <br>
+<table>
+	<tr>
+		<th> 제 목 </th>
+		<td> ${view.title} </td>
+		<th> 작성자 </th>
+		<td> ${view.writer} </td>
+		<th> 작성일 </th>
+		<td> <fmt:formatDate value="${view.regDate}"/> </td>
+	</tr>
+	<tr>
+		<th> 내 용 </th>
+		<td colspan="5"> ${view.content} </td>
+	</tr>
+</table>
+<br><br><br>
 
-<label> 작성자 </label>
-${view.writer} <br>
-
-<label> 내용 </label>
-${view.content} <br>
-
-<div>
-	<a href="/board/modify?bno=${view.bno}"> 게시물 수정 </a> <br>
-	<a href="/board/listPage?num=1"> 게시물 목록 </a> <br>
-	<a href="/board/delete?bno=${view.bno}"> 게시물 삭제 </a> <br>
+<div id = "btn">
+	<a href="/board/modify?bno=${view.bno}"> 게시물 수정 </a> &nbsp;&nbsp;
+	<a href="/board/listPage?num=1"> 게시물 목록 </a> &nbsp;&nbsp;
+	<a href="/board/delete?bno=${view.bno}"> 게시물 삭제 </a>
 </div>
 
 <!-- 댓글 Part -->
@@ -78,6 +93,8 @@ ${view.content} <br>
 </div>
 
 <!-- 댓글 END -->
+
+</div>
 
 </body>
 </html>

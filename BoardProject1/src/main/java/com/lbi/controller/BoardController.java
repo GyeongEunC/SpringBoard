@@ -112,7 +112,7 @@ public class BoardController {
 		page.setNum(num);
 		page.setCount(service.searchCount(searchType, keyword));
 		
-//		검색 타입과 검색어
+		// 검색 타입과 검색어
 		page.setSearchTypeKeyword(searchType, keyword);
 		
 		page.setSearchType(searchType);

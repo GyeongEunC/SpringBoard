@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title> 게시물 수정 </title>
+<link href="/resources/css/board.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="nav">
+	<%@ include file="../include/nav.jsp" %>
+</div>
+
+<div id="wrap" align="center">
+
 <h1> Board Update </h1>
 
 <form method="post">
@@ -24,5 +32,6 @@
 
 </form>
 
+</div>
 </body>
 </html>
